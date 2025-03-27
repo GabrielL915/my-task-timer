@@ -22,7 +22,31 @@ export class UpdateTimeLogUseCase
       input.id as keyof TimeLog
     );
 
-    const timeLogDomain = this.timeLogMapper.toEntity(input);
+    const timeLogDomain: TimeLog = {
+      ...this.timeLogMapper.toEntity(input),
+      id: input.id,
+      startedAt: new Date(input.startedAt),
+    };
+
+    if (input.endedAt && findedTimeLog.endedAt !== input.endedAt) {
+      timeLogDomain.endedAt = new Date(
+        new Date(input.endedAt).toLocaleString('en-US', {
+          timeZone: 'America/Sao_Paulo',
+        })
+      );
+
+      const timeDiff =
+        timeLogDomain.endedAt.getTime() - findedTimeLog.startedAt.getTime();
+      const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor(
+        (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
+      const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+      const timeSpent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      timeLogDomain.timeSpent = timeSpent;
+    }
 
     const updatedTimeLog = await this.timeLogRepository.updateOne(
       findedTimeLog.id as keyof TimeLog,

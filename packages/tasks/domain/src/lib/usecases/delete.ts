@@ -6,10 +6,7 @@ import { Task } from '../entities/task.entity';
 
 @Injectable()
 export class DeleteTaskUseCase implements Usecase<keyof Task, void> {
-  constructor(
-    @Inject('TaskMapper') private readonly taskMapper: TaskMapper,
-    private readonly taskRepository: TaskRepository,
-  ) { }
+  constructor(private readonly taskRepository: TaskRepository) {}
 
   async execute(input: keyof Task) {
     await this.taskRepository.deleteOne(input);
