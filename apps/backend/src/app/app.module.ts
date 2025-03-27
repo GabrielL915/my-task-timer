@@ -5,7 +5,6 @@ import { ConfigModule } from '@nestjs/config';
 import { environment } from '../../../../config/config';
 import { TasksResourceModule } from '@my-task-timer/tasks-resource';
 import { TimeLogResourceModule } from '@my-task-timer/time-log-resource';
-
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -15,7 +14,7 @@ import { TimeLogResourceModule } from '@my-task-timer/time-log-resource';
     DrizzleModule,
     AccountUsersResourceModule,
     TasksResourceModule,
-    TimeLogResourceModule
+    TimeLogResourceModule,
   ],
 })
-export class AppModule { }
+export class AppModule {}
