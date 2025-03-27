@@ -6,6 +6,6 @@ export * from './lib/usecases/delete';
 export * from './lib/usecases/findAll';
 export * from './lib/usecases/findById';
 export * from './lib/usecases/update';
-export * from './lib/dtos/create.timeLog';
-export * from './lib/dtos/response.timeLog';
+export * from './lib/dtos/create.timeLog.dto';
+export * from './lib/dtos/response.timeLog.dto';
 export * from './lib/dtos/update.timeLog';
