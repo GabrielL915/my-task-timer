@@ -18,19 +18,19 @@ export class CreateTimeLogUseCase
   ) {}
 
   async execute(input: CreateTimeLogDto): Promise<ResponseTimeLogDto> {
-    const timeLogDomain = this.timeLogMapper.toEntity(input);
+    const timeLogDomain: TimeLog = this.timeLogMapper.toEntity(
+      input
+    ) as unknown as TimeLog;
 
     timeLogDomain.startedAt = new Date(
       new Date(timeLogDomain.startedAt).toLocaleString('en-US', {
         timeZone: 'America/Sao_Paulo',
       })
-    ) as any;
-
-    console.log('input', timeLogDomain);
-    const createdTimeLog = await this.timeLogRepository.createOne(
-      timeLogDomain as TimeLog
     );
-    console.log('input', createdTimeLog);
+
+    const createdTimeLog = await this.timeLogRepository.createOne(
+      timeLogDomain
+    );
 
     return this.timeLogMapper.toResponse(createdTimeLog);
   }

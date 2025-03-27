@@ -5,7 +5,6 @@ import {
   Update,
 } from '@my-task-timer/shared-interfaces';
 import { Account } from '../entities/account.entity';
-import { undefined } from 'zod';
 
 export abstract class AccountRepository
   implements

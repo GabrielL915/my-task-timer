@@ -5,7 +5,7 @@ import { IsDateString, IsString } from 'class-validator';
 export class UpdateTimeLogDto extends CreateTimeLogDto {
   @Expose()
   @IsDateString({}, { message: 'A data de fim do log de tempo é obrigatória.' })
-  endedAt?: string | null;
+  endedAt!: Date | null;
 
   @Expose()
   @IsString({ message: 'O id do log de tempo é obrigatório.' })

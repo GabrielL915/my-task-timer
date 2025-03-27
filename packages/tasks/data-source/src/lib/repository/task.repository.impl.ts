@@ -7,7 +7,7 @@ import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 export class TaskRepositoryImpl implements TaskRepository {
   constructor(
     @Inject(DRIZZLE_PROVIDER) private readonly db: NodePgDatabase<typeof schema>
-  ) { }
+  ) {}
 
   async createOne(input: Task): Promise<Task> {
     const { id, ...insertData } = input;
@@ -45,7 +45,7 @@ export class TaskRepositoryImpl implements TaskRepository {
   }
 
   async findAll() {
-    const tasks: any = await this.db.select().from(schema.tasks);
-    return tasks.map((task: any) => task);
+    const tasks: Task[] = await this.db.select().from(schema.tasks);
+    return tasks;
   }
 }

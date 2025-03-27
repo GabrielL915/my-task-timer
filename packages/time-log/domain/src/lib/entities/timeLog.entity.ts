@@ -5,6 +5,6 @@ export interface TimeLog {
   endedAt?: Date | null;
   timeSpent?: string;
 
-  taskId: string;
+  taskId?: string;
   task?: Task;
 }

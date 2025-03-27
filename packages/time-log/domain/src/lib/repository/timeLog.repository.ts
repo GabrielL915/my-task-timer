@@ -6,7 +6,6 @@ import {
   Update,
 } from '@my-task-timer/shared-interfaces';
 import { TimeLog } from '../entities/timeLog.entity';
-import { ResponseTimeLogDto } from '../dtos/response.timeLog.dto';
 
 export abstract class TimeLogRepository
   implements
@@ -16,13 +15,13 @@ export abstract class TimeLogRepository
     FindAll<TimeLog>,
     Delete<TimeLog, keyof TimeLog, void>
 {
-  abstract createOne(input: TimeLog): Promise<ResponseTimeLogDto>;
+  abstract createOne(input: TimeLog): Promise<TimeLog>;
 
   abstract updateOne(id: keyof TimeLog, input: TimeLog): Promise<TimeLog>;
 
   abstract deleteOne(id: keyof TimeLog): Promise<void>;
 
-  abstract findOne(id: keyof TimeLog): Promise<ResponseTimeLogDto>;
+  abstract findOne(id: keyof TimeLog): Promise<TimeLog>;
 
-  abstract findAll(): Promise<ResponseTimeLogDto[]>;
+  abstract findAll(): Promise<TimeLog[]>;
 }
