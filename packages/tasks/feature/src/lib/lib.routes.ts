@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { TasksFeatureShellComponent } from './tasks-feature-shell.component';
+import { TasksFeatureComponent } from './tasks-feature.component';
 
-export const tasksFeatureShellRoutes: Route[] = [
-  { path: '', component: TasksFeatureShellComponent },
+export const tasksFeatureRoutes: Route[] = [
+  { path: '', component: TasksFeatureComponent },
 ];

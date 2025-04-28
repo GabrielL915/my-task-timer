@@ -1,8 +1,8 @@
 export default {
-  displayName: 'tasks-feature',
+  displayName: 'tasks-ui',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../../coverage/packages/tasks/feature',
+  coverageDirectory: '../../../coverage/packages/tasks/ui',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

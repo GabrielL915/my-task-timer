@@ -1,0 +1,36 @@
+{
+  "name": "tasks-ui",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/tasks/ui/src",
+  "prefix": "my-task-timer",
+  "projectType": "library",
+  "tags": ["type:ui"],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "packages/tasks/ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "packages/tasks/ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "packages/tasks/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/tasks/ui/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

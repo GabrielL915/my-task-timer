@@ -1,8 +1,8 @@
 {
-  "name": "tasks-feature-shell",
+  "name": "tasks-feature",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/tasks/feature/src",
-  "prefix": "devmx",
+  "prefix": "my-task-timer",
   "projectType": "library",
   "tags": ["type:feature"],
   "targets": {

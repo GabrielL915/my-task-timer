@@ -45,6 +45,7 @@
       "@my-task-timer/tasks-domain": ["packages/tasks/domain/src/index.ts"],
       "@my-task-timer/tasks-feature": ["packages/tasks/feature/src/index.ts"],
       "@my-task-timer/tasks-resource": ["packages/tasks/resource/src/index.ts"],
+      "@my-task-timer/tasks-ui": ["packages/tasks/ui/src/index.ts"],
       "@my-task-timer/time-log-data-source": [
         "packages/time-log/data-source/src/index.ts"
       ],
